@@ -15,7 +15,8 @@ var UserSchema = new mongoose.Schema({
   },
   password: {
     type: String,
-    required: true
+    required: true,
+    select: false
   },
   personal: { type: mongoose.Schema.Types.ObjectId, ref: 'Personal' },
   company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' }
@@ -46,6 +47,6 @@ UserSchema.pre('save', function(callback){
       callback();
     });
   });
-})
+});
 
 module.exports = mongoose.model('User', UserSchema);

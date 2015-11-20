@@ -20,7 +20,7 @@ passport.use(new BasicStrategy(
         // Success
         return callback(null, user);
       });
-    });
+    }).select('+password');
   }
 ));
 
