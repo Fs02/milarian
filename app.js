@@ -7,6 +7,7 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 
 var routes = require('./routes/index');
+var account = require('./routes/account');
 var users = require('./routes/users');
 var companies = require('./routes/companies');
 var vacancies = require('./routes/vacancies');
@@ -36,6 +37,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
 app.use('/', routes);
+app.use('/account', account);
 app.use('/users', users);
 app.use('/companies', companies);
 app.use('/vacancies', vacancies);
