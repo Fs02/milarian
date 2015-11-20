@@ -1,7 +1,9 @@
 var express = require('express');
+var auth = require('../routes/auth');
 var router = express.Router();
 
-var Vacancy = require('../models/vacancy.js')
+var Vacancy = require('../models/vacancy')
+var Vacancy = require('../models/user')
 
 /* GET /vacancies listing. */
 router.get('/', function(req, res, next) {
@@ -15,7 +17,7 @@ router.get('/', function(req, res, next) {
 });
 
 /* POST /vacancies */
-router.post('/', function(req, res, next) {
+router.post('/', auth.isAuthenticated, function(req, res, next) {
   Vacancy.create(req.body, function(err, vacancy){
     if (err) return next(err);
 
@@ -36,7 +38,7 @@ router.get('/:id', function(req, res, next) {
 });
 
 /* PUT /vacancies/:id */
-router.put('/:id', function(req, res, next) {
+router.put('/:id', auth.isAuthenticated, function(req, res, next) {
   Vacancy.findByIdAndUpdate(req.params.id, req.body, function(err, vacancy){
     if (err) return next(err);
 
@@ -45,7 +47,7 @@ router.put('/:id', function(req, res, next) {
 });
 
 /* DELETE /vacancies/:id */
-router.delete('/:id', function(req, res, next) {
+router.delete('/:id', auth.isAuthenticated, function(req, res, next) {
   Vacancy.findByIdAndRemove(req.params.id, req.body, function(err, vacancy){
     if (err) return next(err);
 

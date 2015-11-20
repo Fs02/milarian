@@ -1,5 +1,6 @@
 var mongoose = require('mongoose');
 
+// Vacancy schema
 var VacancySchema = new mongoose.Schema({
   _company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
   position: String,
