@@ -20,7 +20,7 @@ router.get('/', auth.isAuthenticated, function(req, res, next) {
 });
 
 /* POST /accounts/register */
-router.post('/register/:type', function(req, res, next) {
+router.post('/register/:type?', function(req, res, next) {
   // Save company as user profile if type is company otherwise personal
   if (req.params.type === 'company'){
     Company.create(req.body.company, function(err, company){
