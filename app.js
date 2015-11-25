@@ -1,3 +1,4 @@
+var config = require('config');
 var express = require('express');
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -13,7 +14,7 @@ var companies = require('./routes/companies');
 var vacancies = require('./routes/vacancies');
 
 var mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/milarian', function(err) {
+mongoose.connect(config.get('mongo_uri'), function(err) {
   if (err) {
     console.log('Database connection error', err);
   } else {
