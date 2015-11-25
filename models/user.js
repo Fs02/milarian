@@ -19,7 +19,8 @@ var UserSchema = new mongoose.Schema({
     select: false
   },
   personal: { type: mongoose.Schema.Types.ObjectId, ref: 'Personal' },
-  company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' }
+  company: { type: mongoose.Schema.Types.ObjectId, ref: 'Company' },
+  roles: { type: String, default: 'personal' }
 });
 
 UserSchema.methods.verifyPassword = function(password, callback){
@@ -34,6 +35,12 @@ UserSchema.methods.verifyPassword = function(password, callback){
 UserSchema.pre('save', function(callback){
   var user = this;
 
+  // Check user role
+  if (user.company != null) {
+    user.roles = "company";
+  }
+
+  // Hash password
   // Break out if the password hasn't changed
   if (!user.isModified('password')) return callback();
 
