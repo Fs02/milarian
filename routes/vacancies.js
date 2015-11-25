@@ -20,7 +20,8 @@ router.get('/', function(req, res, next) {
 router.post('/', auth.isAuthenticated, function(req, res, next) {
   if (req.user.company != null){
     var vacancy = new Vacancy(req.body);
-    Vacancy.create(req.body, function(err, vacancy){
+    vacancy._company = req.user.company;
+    vacancy.save(function(err){
       if (err) return next(err);
 
       res.json(vacancy);
