@@ -6,6 +6,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
+var cors = require('cors')
 
 var routes = require('./routes/index');
 var account = require('./routes/account');
@@ -24,6 +25,7 @@ mongoose.connect(config.get('mongo_uri'), function(err) {
 
 var app = express();
 
+app.use(cors())
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
