@@ -6,6 +6,8 @@
     <thead>
       <tr>
         <th>#</th>
+        <th>Username</th>
+        <th>Email</th>
         <th>Name</th>
         <th>Industry</th>
         <th>Address</th>
@@ -16,11 +18,13 @@
     <tbody>
       <tr ng-repeat="company in companies">
         <td>{{ company._id }}</td>
-        <td>{{ company.name }}</td>
-        <td>{{ company.industry }}</td>
-        <td>{{ company.address }}</td>
-        <td>{{ company.telephone }}</td>
-        <td>{{ company.updated_at }}</td>
+        <td>{{ company.username }}</td>
+        <td>{{ company.email }}</td>
+        <td>{{ company.company.name }}</td>
+        <td>{{ company.company.industry }}</td>
+        <td>{{ company.company.address }}</td>
+        <td>{{ company.company.telephone }}</td>
+        <td>{{ company.company.updated_at }}</td>
         <td>
           <a class="btn btn-primary" ui-sref="viewCompany({id:company._id})">View</a>
           <a class="btn btn-danger"  ng-click="deleteCompany(company)">Delete</a>

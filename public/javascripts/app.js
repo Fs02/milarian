@@ -37,22 +37,22 @@ angular.module('milarianApp').config(function($stateProvider) {
     controller: 'CompanyEditController'
   })
 
-  .state('users', {
-    url: '/users',
-    templateUrl: 'views/user/list.html',
-    controller: 'UserListController'
-  }).state('viewUser', {
-    url: '/users/:id/',
-    templateUrl: 'views/user/show.html',
-    controller: 'UserViewController'
-  }).state('newUser', {
-    url: '/users/new',
-    templateUrl: 'views/user/new.html',
-    controller: 'UserCreateController'
+  .state('personals', {
+    url: '/personals',
+    templateUrl: 'views/personal/list.html',
+    controller: 'PersonalListController'
+  }).state('viewPersonal', {
+    url: '/personals/:id/',
+    templateUrl: 'views/personal/show.html',
+    controller: 'PersonalViewController'
+  }).state('newPersonal', {
+    url: '/personals/new',
+    templateUrl: 'views/personal/new.html',
+    controller: 'PersonalCreateController'
   }).state('editUser', {
-    url: '/users/:id/edit',
-    templateUrl: 'views/user/edit.html',
-    controller: 'UserEditController'
+    url: '/personals/:id/edit',
+    templateUrl: 'views/personal/edit.html',
+    controller: 'PersonalEditController'
   });
 }).run(function($state) {
   $state.go('vacancies');

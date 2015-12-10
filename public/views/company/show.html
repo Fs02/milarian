@@ -4,20 +4,32 @@
     <td></td>
   </tr>
   <tr>
+    <td>Id</td>
+    <td>{{ company._id }}</td>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td>{{ company.username }}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{ company.email }}</td>
+  </tr>
+  <tr>
     <td>Industry</td>
-    <td>{{ company.industry }}</td>
+    <td>{{ company.company.industry }}</td>
   </tr>
   <tr>
     <td>Address</td>
-    <td>{{ company.address }}</td>
+    <td>{{ company.company.address }}</td>
   </tr>
   <tr>
     <td>Salary</td>
-    <td>{{ company.telephone }}</td>
+    <td>{{ company.company.telephone }}</td>
   </tr>
   <tr>
     <td>Last update</td>
-    <td>{{ company.updated_at }}</td>
+    <td>{{ company.company.updated_at }}</td>
   </tr>
 </table>
 <div>

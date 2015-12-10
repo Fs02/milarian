@@ -1,0 +1,45 @@
+<table class="table movietable">
+  <tr>
+    <td><h3>Details for {{personal.name}}</h3></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Id</td>
+    <td>{{ personal._id }}</td>
+  </tr>
+  <tr>
+    <td>Username</td>
+    <td>{{ personal.username }}</td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td>{{ personal.email }}</td>
+  </tr>
+  <tr>
+    <td>First Name</td>
+    <td>{{ personal.personal.firstname }}</td>
+  </tr>
+  <tr>
+    <td>Middle Name</td>
+    <td>{{ personal.personal.middlename }}</td>
+  </tr>
+  <tr>
+    <td>Last Name</td>
+    <td>{{ personal.personal.lastname }}</td>
+  </tr>
+  <tr>
+    <td>Birthdate</td>
+    <td>{{ personal.personal.birthdate }}</td>
+  </tr>
+  <tr>
+    <td>Address</td>
+    <td>{{ personal.personal.address }}</td>
+  </tr>
+  <tr>
+    <td>Telephone</td>
+    <td>{{ personal.personal.telephone }}</td>
+  </tr>
+</table>
+<div>
+  <a class="btn btn-primary" ui-sref="editCompany({id:company._id})">Edit</a>
+</div>

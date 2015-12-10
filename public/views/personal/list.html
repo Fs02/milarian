@@ -1,0 +1,37 @@
+<h2 class="page-header">Personals</h1>
+<a ui-sref="newPersonal" class="btn-primary btn-lg nodecoration">Add New Personal</a>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>First Name</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Birthdate</th>
+        <th>Address</th>
+        <th>Telephone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="personal in personals">
+        <td>{{ personal._id }}</td>
+        <td>{{ personal.username }}</td>
+        <td>{{ personal.email }}</td>
+        <td>{{ personal.personal.firstname }}</td>
+        <td>{{ personal.personal.middlename }}</td>
+        <td>{{ personal.personal.lastname }}</td>
+        <td>{{ personal.personal.birthdate }}</td>
+        <td>{{ personal.personal.address }}</td>
+        <td>{{ personal.personal.telephone }}</td>
+        <td>
+          <a class="btn btn-primary" ui-sref="viewPersonal({id:personal._id})">View</a>
+          <a class="btn btn-danger"  ng-click="deletePersonal(personal)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
