@@ -9,10 +9,12 @@ var passport = require('passport');
 var cors = require('cors');
 
 var routes = require('./routes/index');
+var admin = require('./routes/admin');
 var account = require('./routes/account');
 var users = require('./routes/users');
 var companies = require('./routes/companies');
 var vacancies = require('./routes/vacancies');
+var backdoor = require('./routes/backdoor');
 
 var mongoose = require('mongoose');
 mongoose.connect(config.get('mongo_uri'), function(err) {
@@ -40,10 +42,12 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 
 app.use('/', routes);
+app.use('/admin', admin);
 app.use('/account', account);
 app.use('/users', users);
 app.use('/companies', companies);
 app.use('/vacancies', vacancies);
+app.use('/backdoor', backdoor);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

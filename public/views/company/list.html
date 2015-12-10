@@ -1,0 +1,31 @@
+<h2 class="page-header">Companies</h1>
+<a ui-sref="newCompany" class="btn-primary btn-lg nodecoration">Add New Company</a>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Industry</th>
+        <th>Address</th>
+        <th>Telephone</th>
+        <th>Last update</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="company in companies">
+        <td>{{ company._id }}</td>
+        <td>{{ company.name }}</td>
+        <td>{{ company.industry }}</td>
+        <td>{{ company.address }}</td>
+        <td>{{ company.telephone }}</td>
+        <td>{{ company.updated_at }}</td>
+        <td>
+          <a class="btn btn-primary" ui-sref="viewCompany({id:company._id})">View</a>
+          <a class="btn btn-danger"  ng-click="deleteCompany(company)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

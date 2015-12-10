@@ -1,0 +1,35 @@
+<h2 class="page-header">Companies</h1>
+<a ui-sref="newVacancy" class="btn-primary btn-lg nodecoration">Add New Company</a>
+
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Username</th>
+        <th>Email</th>
+        <th>Middle Name</th>
+        <th>Last Name</th>
+        <th>Birthdate</th>
+        <th>Address</th>
+        <th>Telephone</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="company in companies">
+        <td>{{ company._id }}</td>
+        <td>{{ company._id }}</td>
+        <td>{{ company.position }}</td>
+        <td>{{ company.description }}</td>
+        <td>{{ company.location }}</td>
+        <td>{{ company.salary }}</td>
+        <td>{{ company.expiry }}</td>
+        <td>{{ company.updated_at }}</td>
+        <td>
+          <a class="btn btn-primary" ui-sref="viewVacancy({id:vacancy._id})">View</a>
+          <a class="btn btn-danger"  ng-click="deleteVacancy(vacancy)">Delete</a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

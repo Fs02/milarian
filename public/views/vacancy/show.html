@@ -1,0 +1,29 @@
+<table class="table movietable">
+  <tr>
+    <td><h3>Details for {{vacancy.position}}</h3></td>
+    <td></td>
+  </tr>
+  <tr>
+    <td>Description</td>
+    <td>{{ vacancy.description }}</td>
+  </tr>
+  <tr>
+    <td>Location</td>
+    <td>{{ vacancy.location }}</td>
+  </tr>
+  <tr>
+    <td>Salary</td>
+    <td>{{ vacancy.salary }}</td>
+  </tr>
+  <tr>
+    <td>Expiry</td>
+    <td>{{ vacancy.expiry }}</td>
+  </tr>
+  <tr>
+    <td>Last update</td>
+    <td>{{ vacancy.updated_at }}</td>
+  </tr>
+</table>
+<div>
+  <a class="btn btn-primary" ui-sref="editVacancy({id:vacancy._id})">Edit</a>
+</div>
