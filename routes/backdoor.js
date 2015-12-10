@@ -22,7 +22,6 @@ router.get('/vacancies/', function(req, res, next) {
 /* POST /vacancies */
 router.post('/vacancies/', function(req, res, next) {
   var vacancy = new Vacancy(req.body);
-  vacancy._company = req.user.company;
   vacancy.save(function(err){
     if (err) return next(err);
 
