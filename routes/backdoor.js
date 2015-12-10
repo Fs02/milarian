@@ -75,11 +75,19 @@ router.get('/companies/', function(req, res, next) {
 
 /* POST /companies */
 router.post('/companies/', function(req, res, next) {
-  var company = new Company(req.body);
-  company.save(function(err){
+  console.log(req.body);
+  Company.create(req.body.company, function(err, company){
     if (err) return next(err);
 
-    res.json(company);
+    req.body.company = company;
+    User.create(req.body, function(err, user){
+      if (err) {
+        company.remove();
+        return next(err);
+      }
+
+      res.json(user);
+    });
   });
 });
 
@@ -128,11 +136,18 @@ router.get('/personals/', function(req, res, next) {
 
 /* POST /personals */
 router.post('/personals/', function(req, res, next) {
-  var personal = new Personal(req.body);
-  personal.save(function(err){
+  Personal.create(req.body.personal, function(err, personal){
     if (err) return next(err);
 
-    res.json(personal);
+    req.body.personal = personal;
+    User.create(req.body, function(err, user){
+      if (err) {
+        personal.remove();
+        return next(err);
+      }
+
+      res.json(user);
+    });
   });
 });
 
