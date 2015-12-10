@@ -64,7 +64,8 @@ router.delete('/vacancies/:id', function(req, res, next) {
 
 /* GET /companies listing. */
 router.get('/companies/', function(req, res, next) {
-  Company.find()
+  User.find({ roles: 'company' })
+  .populate('company')
   .exec(function(err, companies){
     if (err) return next(err);
 
@@ -84,8 +85,9 @@ router.post('/companies/', function(req, res, next) {
 
 /* GET /companies/:id */
 router.get('/companies/:id', function(req, res, next) {
-  Company
+  User
   .findById(req.params.id)
+  .populate('company')
   .exec(function(err, company){
     if (err) return next(err);
 
@@ -115,7 +117,8 @@ router.delete('/companies/:id', function(req, res, next) {
 
 /* GET /personals listing. */
 router.get('/personals/', function(req, res, next) {
-  Personal.find()
+  User.find({ roles: 'personal' })
+  .populate('personal')
   .exec(function(err, personals){
     if (err) return next(err);
 
@@ -135,9 +138,10 @@ router.post('/personals/', function(req, res, next) {
 
 /* GET /personals/:id */
 router.get('/personals/:id', function(req, res, next) {
-  Personal
+  User
   .findById(req.params.id)
-  .exec(function(err, company){
+  .populate('personal')
+  .exec(function(err, personal){
     if (err) return next(err);
 
     res.json(personal);
@@ -159,57 +163,6 @@ router.delete('/personals/:id', function(req, res, next) {
     if (err) return next(err);
 
     res.json(personal);
-  });
-});
-
-/************************* User ***********************/
-
-/* GET /users listing. */
-router.get('/users/', function(req, res, next) {
-  User.find()
-  .exec(function(err, companies){
-    if (err) return next(err);
-
-    res.json(companies);
-  });
-});
-
-/* POST /users */
-router.post('/users/', function(req, res, next) {
-  var user = new Company(req.body);
-  user.save(function(err){
-    if (err) return next(err);
-
-    res.json(user);
-  });
-});
-
-/* GET /users/:id */
-router.get('/users/:id', function(req, res, next) {
-  User
-  .findById(req.params.id)
-  .exec(function(err, user){
-    if (err) return next(err);
-
-    res.json(user);
-  });
-});
-
-/* PUT /users/:id */
-router.put('/users/:id', function(req, res, next) {
-  User.findByIdAndUpdate(req.params.id, req.body, function(err, user){
-    if (err) return next(err);
-
-    res.json(user);
-  });
-});
-
-/* DELETE /users/:id */
-router.delete('/users/:id', function(req, res, next) {
-  User.findByIdAndRemove(req.params.id, req.body, function(err, user){
-    if (err) return next(err);
-
-    res.json(user);
   });
 });
 
