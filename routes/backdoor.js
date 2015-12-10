@@ -104,7 +104,7 @@ router.get('/companies/:id', function(req, res, next) {
 
 /* PUT /companies/:id */
 router.put('/companies/:id', function(req, res, next) {
-  Company.findByIdAndUpdate(req.params.id, req.body, function(err, company){
+  User.findByIdAndUpdate(req.params.id, req.body, function(err, company){
     if (err) return next(err);
 
     res.json(company);
@@ -113,7 +113,7 @@ router.put('/companies/:id', function(req, res, next) {
 
 /* DELETE /companies/:id */
 router.delete('/companies/:id', function(req, res, next) {
-  Company.findByIdAndRemove(req.params.id, req.body, function(err, company){
+  User.findByIdAndRemove(req.params.id, req.body, function(err, company){
     if (err) return next(err);
 
     res.json(company);
@@ -164,7 +164,7 @@ router.get('/personals/:id', function(req, res, next) {
 
 /* PUT /personals/:id */
 router.put('/personals/:id', function(req, res, next) {
-  Personal.findByIdAndUpdate(req.params.id, req.body, function(err, personal){
+  User.findByIdAndUpdate(req.params.id, req.body, function(err, personal){
     if (err) return next(err);
 
     res.json(personal);
@@ -173,7 +173,7 @@ router.put('/personals/:id', function(req, res, next) {
 
 /* DELETE /personals/:id */
 router.delete('/personals/:id', function(req, res, next) {
-  Personal.findByIdAndRemove(req.params.id, req.body, function(err, personal){
+  User.findByIdAndRemove(req.params.id, req.body, function(err, personal){
     if (err) return next(err);
 
     res.json(personal);

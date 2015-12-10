@@ -49,7 +49,7 @@ angular.module('milarianApp').config(function($stateProvider) {
     url: '/personals/new',
     templateUrl: 'views/personal/new.html',
     controller: 'PersonalCreateController'
-  }).state('editUser', {
+  }).state('editPersonal', {
     url: '/personals/:id/edit',
     templateUrl: 'views/personal/edit.html',
     controller: 'PersonalEditController'
